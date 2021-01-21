@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% static "UsersImg" as imgs %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpashyDRESS</title>
+    <link rel="icon" href="{% static 'img/dress_last.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+<!--
+    
+TemplateMo 556 Catalog-Z
+
+https://templatemo.com/tm-556-catalog-z
+
+-->
+
+    <link href="{% static 'css/style1.css' %}" type="text/css" rel="stylesheet"></link>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/javasc2.js' %}" type="text/javascript">    
+
+    </script>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'homepage' %}">
+                <!-- <i class="fas fa-film mr-2"></i> -->
+                <img src="{% static 'img/dress_last.png' %}">
+                <!-- <i class="fas fa-film mr-2"></i> -->
+                SpashyDress
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-1 active" aria-current="page" href="{% url 'homepage' %}">Photos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="{% url 'cont' %}">Contact</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid tm-container-content tm-mt-60">
+        <div class="row mb-4">
+        <h2 class="col-12 tm-text-primary">Photo title goes here</h2>
+        </div>
+        <div class="row tm-mb-90">            
+            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12" >
+                {% if uwork %}
+                    <section class="mb-5">
+
+                        <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                    
+                            <div id="mdb-lightbox-ui"></div>
+                    
+                            <div class="mdb-lightbox">
+                    
+                                <div class="row product-gallery mx-1">
+                        
+                                    <div class="col-12 mb-0">
+                                    <figure class="view overlay rounded z-depth-1 main-img">
+                                        <a href="{{imgs}}/{{uimg}}"
+                                        data-size="710x823">
+                                        <img src="{{imgs}}/{{uimg}}"
+                                            class="img-fluid z-depth-1 shadow-lg p-4 mb-4 bg-white">
+                                        </a>
+                                    </figure>
+                                    </div>
+                                    <div class="col-12">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                        <div class="col-md-6">
+                    
+                            <h5>Name of Work done : <p class="mb-2 text-muted text-uppercase small">{{uname}}</h5>
+                            <p class="mb-2 text-muted text-uppercase small">{{uname}}</p>
+
+                            <p><span class="mr-1"><strong>Rs{{ucost}}</strong></span></p>
+                            <p class="pt-1">{{uwork}}</p>
+                            <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0">
+                                <tbody>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Material</strong></th>
+                                    <th class="pl-0 w-25" scope="row"><strong>Used</strong></th>
+                                    <th class="pl-0 w-25"><strong>:</strong></th>
+                                    <td>{{umaterial}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Estimated</strong></th>
+                                    <th class="pl-0 w-25" scope="row"><strong>Date</strong></th>
+                                    <th class="pl-0 w-25"><strong>:</strong></th>
+                                    <td>{{uestimated_date}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Likes : </strong></th>
+                                    <td>{{review}}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" name="but" value=" {{review}} ">
+                                    <img src="https://img.icons8.com/officel/80/4a90e2/good-quality.png"/> LIKE
+                                </button>
+                            </form>
+                            </div>
+                            <hr>
+                        </div>
+                    
+                    </section>
+                {% else %}
+                    <section class="mb-5">
+
+                        <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                    
+                            <div id="mdb-lightbox-ui"></div>
+                    
+                            <div class="mdb-lightbox">
+                    
+                                <div class="row product-gallery mx-1">
+                        
+                                    <div class="col-12 mb-0">
+                                    <figure class="view overlay rounded z-depth-1 main-img">
+                                        <a href="{{imgs}}/{{uimg}}"
+                                        data-size="710x823">
+                                        <img src="{{imgs}}/{{uimg}}"
+                                            class="img-fluid z-depth-1 shadow-lg p-4 mb-4 bg-white">
+                                        </a>
+                                    </figure>
+                                    </div>
+                                    <div class="col-12">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Name of Work done :</h5>
+                            <p class="mb-2 text-muted text-uppercase small">{{uname}}</p>
+                            <p><span class="mr-1"><strong>Rs{{ucost}}</strong></span></p>
+                            <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0">
+                                <tbody>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Material Used :</strong></th>
+                                    <td>{{umaterial}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Estimated Date :</strong></th>
+                                    <td>{{uestimated_date}}</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Likes :</strong></th>
+                                    <td>{{review}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" name="but" value=" {{review}} ">
+                                    <img src="https://img.icons8.com/officel/80/4a90e2/good-quality.png"/> LIKE
+                                </button>
+                            </form>
+                            </div>
+                            <hr>
+                        </div>
+                    
+                    </section>
+                {% endif %}
+            </div>
+    </div> <!-- container-fluid, tm-container-content -->
+
+    <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+        <div class="container-fluid tm-container-small">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                    <h3 class="tm-text-primary mb-4 tm-footer-title">About SpashyDRESS</h3>
+                    <p>SpashyDRESS is all about dress design ,mask design all types of work done.Our main focus is to have new types of design and publish it here to our site  </p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+                        <h3 class="tm-text-primary mb-4 tm-footer-title">Contact here </h3><br>
+                        <h4>  </h4><br>
+                        <li class="mb-2"><a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                    <a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
+                    <a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                    Copyright 2021 SpashyDRESS. All rights reserved.
+                </div>
+                <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+                    Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored" target="_parent">JayM</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+    </script>
+</body>
+</html>
