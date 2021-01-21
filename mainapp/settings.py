@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'dpn5kg0t-d9=hi89r2fhtamyfis*x&-@alwk@6g=kk(+v=cl%c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','spashy.herokuapp.com']
 
 
 # Application definition
