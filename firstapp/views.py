@@ -17,7 +17,7 @@ def home_pg(request):
         page = p.page(1)
 
 
-    return render(request,'index.html',{'users':page,'totalpages':p.num_pages})
+    return render(request,'index.html',{'users':page,'totalpages':p.num_pages,'userall':userall})
 
 def photo_detl(request,pkimg):
     userimg = UsersAll.objects.get(id=pkimg)
