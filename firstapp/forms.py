@@ -4,4 +4,4 @@ from .models import UsersAll
 class Reviewform(ModelForm):
     class Meta:
         model = UsersAll
-        fields = ['review']
+        fields = ['review','image']
